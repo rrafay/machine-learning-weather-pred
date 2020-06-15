@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+import pickle
 
 #Read the csv file
 data = pd.read_csv("austin_weather.csv")
@@ -51,22 +52,35 @@ regressor.fit(X_train,y_train)
 #Predicted y values based on our linear regression model 
 y_pred = regressor.predict(X_test)
 
+#pickling
+#filename = 'data'
+#outfile = open(filename, 'wb')
+
+#pickle.dump(regre)
+
+
+## trying out new stuff
+pickle.dump(regressor, open('weather_prediction_.pkl','wb'))
+
+model = pickle.load(open('weather_prediction_.pkl','rb'))
+print(model.predict([[4]]))
+
 #Linear Regression score
 #0.73 is a pretty good score
-regressor.score(X_test,y_test)
+#regressor.score(X_test,y_test)
 
-val = int(input( "Enter your value: "))
+#val = int(input( "Enter your value: "))
 
 #my_var = np.array([[49]])
 #my_var = np.array([[33]])
 
-pred_fun = regressor.predict([[val]])
-pred_fun
+#pred_fun = regressor.predict([[val]])
+#pred_fun
 
 #Converting Temperature values from Farenheight to Celsius
-celsius = ( pred_fun - 32) / 1.8
+#celsius = ( pred_fun - 32) / 1.8
 
-print(celsius)
+#print(celsius)
 
 
 
