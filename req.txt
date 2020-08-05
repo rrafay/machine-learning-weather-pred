@@ -1,0 +1,6 @@
+numpy
+pandas
+Flask
+Flask-Excel
+request
+scikit-learn
